@@ -19,11 +19,11 @@ class Map extends React.Component {
     }
 
     boundsChange(obj) {
-      // console.log('obj: ', obj);
-      // console.log('this.props.properties: ', this.props.properties);
+      console.log('obj: ', obj);
+      console.log('this.props.properties: ', this.props.properties);
       axios.post('/mapChange', obj).then(response => {
-        // console.log('response from mapChange: ', response)
-        // console.log('this.props ', this.props)
+        console.log('response from mapChange: ', response)
+        console.log('this.props ', this.props)
         this.props.handleOnChange(response.data)
       });
       
@@ -43,6 +43,8 @@ class Map extends React.Component {
 
             <GoogleMapReact onChange={this.boundsChange} bootstrapURLKeys={{ key: config }} defaultCenter={this.center} center={{lat: this.props.currentProperty.latitude, lng: this.props.currentProperty.longitude}} defaultZoom={this.zoom} >
             {this.props.properties.map( (property, i) => {
+              console.log('property: ', property);
+                
                 return (
                     <MapProperty key={i} lat={property.latitude} lng={property.longitude} property={property} currentProperty={this.props.currentProperty} changeCurrentProperty={this.props.changeCurrentProperty}/>
                 )

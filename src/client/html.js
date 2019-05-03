@@ -5,7 +5,7 @@ const Html = ({ body, title }) => `
       <title>${title}</title>
     </head>
     <body style="margin:0">
-      <div id="app">${body}</div>
+      <div id="neighborhood">${body}</div>
     </body>
   </html>
 `;

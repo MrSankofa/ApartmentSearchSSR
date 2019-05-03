@@ -2,13 +2,14 @@ import React from 'react';
 import Axios from 'axios';
 import Map from './map.jsx';
 
-class NeighborhoodSection extends React.Component {
+
+class App extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            properties: [],
-            currentProperty: undefined
+            properties: this.props.coordinates,
+            currentProperty: this.props.coordinates[0]
         }
 
         this.getProperties = this.getProperties.bind(this);
@@ -17,6 +18,7 @@ class NeighborhoodSection extends React.Component {
     }
 
     componentDidMount() {
+        console.log('getting here');
         this.getProperties();
     }
 
@@ -26,20 +28,18 @@ class NeighborhoodSection extends React.Component {
         // pass the bounds obj to it
         // send the bounds obj to the /mapChange route
         // populate the state based on the bounds of the window
-          
-        Axios.get('/items')
-        .then(response => { 
-          
-          if ( Array.isArray(response.data) === false ) {
-            response.data = [];
-          }
-          
-          return this.setState({
-            properties: response.data,
-            currentProperty: response.data[window.location.pathname.substring(1) - 1] || response.data[0]
-        }) }
-        )
-        .catch(err => console.log('error fetching data'))
+        
+        
+        // Axios.get('/items')
+        //     .then(response => {   
+                
+                
+        //         return this.setState({
+        //             properties: response.data,
+        //             currentProperty: response.data[window.location.pathname.substring(1) - 1] || response.data[0]
+        //         }) 
+        //     })
+        //     .catch(err => console.log('error fetching data'))
     }
 
     changeCurrentProperty(propertyId) {
@@ -70,10 +70,10 @@ class NeighborhoodSection extends React.Component {
             );
         } else {
             return (
-                <div>No Properties yet</div>
+                <div>No Properties yet Brett</div>
             )
         }
     }
 }
 
-module.exports = NeighborhoodSection;
+module.exports = App;
