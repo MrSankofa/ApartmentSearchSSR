@@ -43,9 +43,7 @@ class Map extends React.Component {
 
             <GoogleMapReact onChange={this.boundsChange} bootstrapURLKeys={{ key: config }} defaultCenter={this.center} center={{lat: this.props.currentProperty.latitude, lng: this.props.currentProperty.longitude}} defaultZoom={this.zoom} >
             {this.props.properties.map( (property, i) => {
-              console.log('property: ', property);
-                
-                return (
+              return (
                     <MapProperty key={i} lat={property.latitude} lng={property.longitude} property={property} currentProperty={this.props.currentProperty} changeCurrentProperty={this.props.changeCurrentProperty}/>
                 )
             })}
