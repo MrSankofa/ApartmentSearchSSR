@@ -9,10 +9,12 @@ const Html = ({ body, title }) => `
     </body>
     <script src="/lib/react.development.js"></script>
     <script src="/lib/react-dom.development.js"></script>
+    <script src="https://unpkg.com/react@16.8.6/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16.8.6/umd/react-dom.development.js"></script>
     <script src="/app.js"></script>
     <script>
       ReactDOM.hydrate(
-        React.createElement(Index),
+        React.createElement(index),
         document.getElementById('neighborhood')
       );
     </script>

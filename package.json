@@ -5,7 +5,8 @@
  "main": "index.js",
  "scripts": {
   "start": "nodemon ./dist/server",
-  "build": "webpack"
+  "build": "webpack",
+  "dev": "webpack -d --watch"
  },
  "devDependencies": {
   "babel-core": "^6.10.4",
