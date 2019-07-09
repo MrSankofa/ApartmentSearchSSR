@@ -19,4 +19,4 @@ const Html = ({ body, title }) => `
   </html>
 `;
 
-export default Html
+module.exports = Html;
