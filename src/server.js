@@ -11,8 +11,7 @@ const port = 4000;
 const server = express();
 
 server.use(morgan('dev'));
-// server.use(express.static(path.join(__dirname, '../public')));
-
+server.use(express.static(path.join(__dirname, '../public')));
 
 // const serverBundle = require('../public/app-server.js').default;
 
@@ -25,32 +24,32 @@ server.use(morgan('dev'));
 //   return ReactDom.renderToString(component);
 // };
 
-server.get('/', (req, res) => { 
+// server.get('/', (req, res) => { 
 
-  Models.psqlRetrieveAll((data) => {
-    // let component = renderComponent({'data': data});
-    // res.end(Layout(
-    //   'Server side Rendering with Google Maps',
-    //   component
-    // ));
+//   Models.psqlRetrieveAll((data) => {
+//     let component = renderComponent({'data': data});
+//     res.end(Layout(
+//       'Server side Rendering with Google Maps',
+//       component
+//     ));
 
-    if ( Array.isArray(data) === false ) {
-        data = [];
-    }
+//     if ( Array.isArray(data) === false ) {
+//         data = [];
+//     }
 
-    const body = renderToString(<App coordinates={data}/>);
-    const title = 'Server side Rendering with Google Maps';
+//     const body = renderToString(<App coordinates={data}/>);
+//     const title = 'Server side Rendering with Google Maps';
     
-    res.send(
-      Html({
-        body,
-        title,
-      })
-    );
-  });
+//     res.send(
+//       Html({
+//         body,
+//         title,
+//       })
+//     );
+//   });
   
 
-});
+// });
 
 server.listen(port);
 console.log(`Serving at http://localhost:${port}`);

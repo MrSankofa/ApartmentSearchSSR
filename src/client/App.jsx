@@ -3,7 +3,7 @@ import Axios from 'axios';
 import Map from './map.jsx';
 
 
-class App extends React.Component {
+export default class App extends React.Component {
     constructor(props) {
         super(props);
 
