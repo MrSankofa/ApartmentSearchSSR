@@ -1,7 +1,5 @@
 import React from 'react';
 
-
-
 class NearbyHomes extends React.Component {
     constructor(props) {
         super(props);
