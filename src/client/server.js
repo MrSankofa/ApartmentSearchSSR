@@ -1,3 +1,3 @@
-import App from './App.jsx';
+import NeighborhoodSection from './NeighborhoodSection.jsx';
 
-export default App;
+export default NeighborhoodSection;

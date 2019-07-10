@@ -3,3 +3,4 @@ config.js
 dist/server.js
 public/app-server.js
 public/app.js
+.env

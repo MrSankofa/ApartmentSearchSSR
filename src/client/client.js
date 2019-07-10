@@ -1,3 +1,3 @@
-import App from './App.jsx';
+import NeighborhoodSection from './NeighborhoodSection.jsx';
 
-window.App = App;
+window.NeighborhoodSection = NeighborhoodSection;
