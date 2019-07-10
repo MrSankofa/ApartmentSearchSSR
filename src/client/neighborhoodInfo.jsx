@@ -2,7 +2,7 @@ import React from 'react';
 import Dialogue from './dialogue.jsx';
 
 
-export default class NeighborhoodInfo extends React.Component {
+class NeighborhoodInfo extends React.Component {
     constructor(props) {
         super(props);
         this.calculateNeighborhoodAveragePrice = this.calculateNeighborhoodAveragePrice.bind(this);
