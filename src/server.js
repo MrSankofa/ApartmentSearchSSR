@@ -49,6 +49,10 @@ server.get('/items', (req, res) => {
   }).catch( err => console.error(err));
 });
 
+server.get('/items/:id', (req, res) => {
+  Models.psqlRetrieveOne(req, res);
+})
+
 server.listen(port);
 console.log(`Serving at http://localhost:${port}`);
 
