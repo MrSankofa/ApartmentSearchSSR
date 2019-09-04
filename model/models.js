@@ -1,3 +1,5 @@
+const hardData = require('./data.js');
+
 require('dotenv').config();
 const pg = require('pg');
 
@@ -47,32 +49,45 @@ var psqlOnChange = (req, res, bounds) => {
 }
 
 var psqlRetrieveAll = (req, res) => {
-    var getEverything = `SELECT * FROM ${awsTable} limit 100`;
-    
-    return pool.query(getEverything)
-    .then((data) => {
-        // console.log('data.rows: ', data.rows);
-        res.status(200).send(data.rows)
-    })
-    .catch((err) => {
-      console.log(err);
-      // pool.end();
-    }); 
+  res.status(200).send(hardData)
+  return hardData
 }
 
 var psqlRetrieveOne = (req, res) => {
-    
-  var getOne = 'SELECT * FROM neighborhood WHERE \"uniqueId\" = ' + req.params.id;
 
-  pool.query(getOne)
-      .then((data) => {
-          res.status(200).send(data.rows)
-      })
-      .catch((err) => {
-          console.log(err);
-          // pool.end();
-        }); 
+  res.status(200).send(hardData[req.params.id])
+  return hardData[req.params.id];
+  
 }
+
+
+// var psqlRetrieveAll = (req, res) => {
+//     var getEverything = `SELECT * FROM ${awsTable} limit 100`;
+    
+//     return pool.query(getEverything)
+//     .then((data) => {
+//         // console.log('data.rows: ', data.rows);
+//         res.status(200).send(data.rows)
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//       // pool.end();
+//     }); 
+// }
+
+// var psqlRetrieveOne = (req, res) => {
+    
+//   var getOne = 'SELECT * FROM neighborhood WHERE \"uniqueId\" = ' + req.params.id;
+
+//   pool.query(getOne)
+//       .then((data) => {
+//           res.status(200).send(data.rows)
+//       })
+//       .catch((err) => {
+//           console.log(err);
+//           // pool.end();
+//         }); 
+// }
 
 module.exports.psqlOnChange = psqlOnChange;
 module.exports.psqlRetrieveAll = psqlRetrieveAll;

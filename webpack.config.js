@@ -92,7 +92,7 @@ const client = {
   entry: './client.js',
   output: {
     path: __dirname + '/public',
-    filename: 'app.js'
+    filename: 'apartment.bundle.js'
   }
 };
 
